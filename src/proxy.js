@@ -10,12 +10,12 @@ export function proxy(request) {
   // Auth routes
   const authRoutes = ["/login", "/register"];
 
-  // Protected route pe ja raha hai bina token ke
+  // Go to protected route without token
   if (protectedRoutes.includes(pathname) && !token) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
 
-  // Auth route pe ja raha hai lekin pehle se logged in hai
+  // Go to auth route with token
   if (authRoutes.includes(pathname) && token) {
     return NextResponse.redirect(new URL("/dashboard", request.url));
   }
