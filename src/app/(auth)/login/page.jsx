@@ -21,21 +21,14 @@ export default function LoginPage() {
     };
 
     const handleSubmit = async (e) => {
-          console.log("Form submitted!"); // ← Ye add karo
-
         e.preventDefault();
-          console.log("After preventDefault"); // ← Ye add karo
 
         setLoading(true);
         setError("");
 
         try {
-                console.log("Trying API call..."); // ← Ye bhi add karo
 
-            const res = await api.post("/api/auth/login", formData);
-
-                console.log("Trying API call..."); // ← Ye bhi add karo
-
+            const res = await api.post("/auth/login", formData);
 
             if (res.data.success) {
                 setToken(res.data.data.accessToken);

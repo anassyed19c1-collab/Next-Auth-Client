@@ -26,7 +26,7 @@ export default function RegisterPage() {
         setError("");
 
         try {
-            const res = await api.post("/api/auth/register", formData);
+            const res = await api.post("/auth/register", formData);
 
             if (res.data.success) {
                 setToken(res.data.data.accessToken);
